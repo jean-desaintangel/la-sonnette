@@ -23,6 +23,9 @@
 
 const CLE_STOCKAGE = 'sonnette_idees';
 
+/** Endpoint Formspree : chaque soumission envoie un email au propriétaire du compte. */
+const URL_FORMSPREE = 'https://formspree.io/f/xnjrwvka';
+
 /**
  * Hash SHA-256 du mot de passe admin (le mot de passe en clair n'apparaît pas ici).
  * Généré avec : echo -n "<votre-mot-de-passe>" | sha256sum
@@ -413,7 +416,7 @@ function etatChargementBouton(bouton, enChargement) {
   }
 }
 
-function traiterSoumission(formulaire) {
+async function traiterSoumission(formulaire) {
   const boutonEnvoi     = formulaire.querySelector('#bouton-envoi');
   const divConfirmation = formulaire.querySelector('#confirmation-envoi');
 
@@ -427,10 +430,39 @@ function traiterSoumission(formulaire) {
     date:        new Date().toISOString(),
   };
 
+  // 1. Sauvegarde locale — l'idée s'affiche immédiatement dans le navigateur.
   const idees = chargerIdees();
   idees.push(nouvelleIdee);
   sauvegarderIdees(idees);
   afficherToutesLesIdees();
+
+  // 2. Envoi à Formspree — Jean & Sandrine reçoivent un email pour chaque idée.
+  //    On attend la réponse avant de réactiver le bouton (d'où le "await").
+  //    Si le réseau est coupé, l'idée est quand même sauvée localement ci-dessus.
+  try {
+    const reponse = await fetch(URL_FORMSPREE, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        type:        LABELS_TYPE[nouvelleIdee.type] ?? nouvelleIdee.type,
+        nom:         nouvelleIdee.nom,
+        description: nouvelleIdee.description,
+        pseudo:      nouvelleIdee.pseudo || 'Anonyme',
+        date:        nouvelleIdee.date,
+      }),
+    });
+
+    if (!reponse.ok) {
+      // L'idée est déjà sauvegardée localement — on log l'erreur sans bloquer l'utilisateur.
+      console.warn('Formspree : échec de l\'envoi (statut', reponse.status, ')');
+    }
+  } catch (erreurReseau) {
+    // Pas de connexion internet ou Formspree indisponible — l'idée reste dans localStorage.
+    console.warn('Formspree : erreur réseau —', erreurReseau.message);
+  }
 
   formulaire.reset();
 
@@ -475,7 +507,7 @@ function initialiserFormulaire() {
   initialiserValidationTempsReel(formulaire);
   initialiserModales();
 
-  formulaire.addEventListener('submit', (e) => {
+  formulaire.addEventListener('submit', async (e) => {
     e.preventDefault();
     effacerToutesLesErreurs(formulaire);
 
@@ -484,7 +516,7 @@ function initialiserFormulaire() {
       return;
     }
 
-    traiterSoumission(formulaire);
+    await traiterSoumission(formulaire);
   });
 }
 
