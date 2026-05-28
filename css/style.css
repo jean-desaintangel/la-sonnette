@@ -993,6 +993,196 @@ a:focus-visible {
   color: #ff7675;
 }
 
+/* ── Liste des idées proposées ── */
+.idees__liste-wrapper {
+  margin-top: var(--espace-xl);
+}
+
+.idees__liste-entete {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espace-sm);
+  margin-bottom: var(--espace-md);
+  flex-wrap: wrap;
+}
+
+.idees__liste-titre {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--couleur-accent);
+  margin: 0;
+}
+
+.bouton-admin {
+  background: transparent;
+  border: 1px solid rgba(245, 200, 66, 0.35);
+  border-radius: var(--arrondi-sm);
+  color: rgba(253, 246, 236, 0.5);
+  cursor: pointer;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.6rem;
+  transition: all 0.2s;
+}
+.bouton-admin:hover          { border-color: rgba(245, 200, 66, 0.7); color: var(--couleur-accent); }
+.bouton-admin--actif         { border-color: #27ae60; color: #a8e6cf; }
+.bouton-admin--actif:hover   { border-color: #e74c3c; color: #ff7675; }
+
+.idees__liste {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+/* Ligne compacte par idée */
+.idees__item {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(245, 200, 66, 0.15);
+  border-radius: var(--arrondi-sm);
+  padding: 0.5rem 0.75rem;
+}
+
+.idees__item-haut {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.idees__item-badge {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--couleur-accent);
+  white-space: nowrap;
+  opacity: 0.85;
+}
+
+.idees__item-titre {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--couleur-texte-clair, #fdf6ec);
+}
+
+/* Détails dépliables */
+.idees__item-details {
+  margin-top: 0.2rem;
+}
+
+.idees__item-summary {
+  font-size: 0.75rem;
+  color: rgba(253, 246, 236, 0.4);
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+.idees__item-summary::-webkit-details-marker { display: none; }
+.idees__item-summary::before { content: '▸ '; }
+details[open] .idees__item-summary::before { content: '▾ '; }
+
+.idees__item-corps {
+  padding-top: 0.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.idees__item-description {
+  margin: 0;
+  font-size: 0.88rem;
+  color: rgba(253, 246, 236, 0.75);
+  line-height: 1.5;
+}
+
+.idees__item-meta {
+  font-size: 0.75rem;
+  color: rgba(253, 246, 236, 0.4);
+}
+
+/* Boutons admin par carte */
+.idees__item-actions {
+  display: flex;
+  gap: 0.4rem;
+  margin-top: 0.4rem;
+}
+
+.btn-admin {
+  background: transparent;
+  border: 1px solid currentColor;
+  border-radius: var(--arrondi-sm);
+  cursor: pointer;
+  font-size: 0.72rem;
+  padding: 0.2rem 0.5rem;
+  transition: opacity 0.15s;
+}
+.btn-admin:hover           { opacity: 0.75; }
+.btn-admin--modif          { color: #7fb3d3; }
+.btn-admin--suppr          { color: #ff7675; }
+
+/* ── Modales admin ── */
+.admin-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.admin-modal[hidden] { display: none; }
+
+.admin-modal__boite {
+  background: #1e1e2e;
+  border: 1px solid rgba(245, 200, 66, 0.3);
+  border-radius: var(--arrondi-lg);
+  padding: var(--espace-lg);
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espace-sm);
+}
+
+.admin-modal__titre {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--couleur-accent);
+  margin: 0;
+}
+
+.admin-modal__texte {
+  margin: 0;
+  font-size: 0.9rem;
+  color: rgba(253, 246, 236, 0.7);
+}
+
+.admin-modal__input {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(245, 200, 66, 0.3);
+  border-radius: var(--arrondi-sm);
+  color: var(--couleur-texte-clair, #fdf6ec);
+  font-size: 1rem;
+  padding: 0.6rem 0.75rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.admin-modal__erreur {
+  color: #ff7675;
+  font-size: 0.85rem;
+}
+.admin-modal__erreur[hidden] { display: none; }
+
+.admin-modal__actions {
+  display: flex;
+  gap: var(--espace-sm);
+  justify-content: flex-end;
+}
+
 /* ── Contact direct ── */
 .contact-direct {
   padding: var(--espace-lg);

@@ -7,8 +7,8 @@
 
   <!--
     SÉCURITÉ : Content Security Policy de base.
-    Permet uniquement les ressources de confiance (Google Fonts, Formspree).
-    À adapter si d'autres CDN sont ajoutés en V2.
+    Permet uniquement les ressources de confiance (Google Fonts).
+    Plus d'appel réseau depuis le formulaire : tout se passe en localStorage.
   -->
   <meta http-equiv="Content-Security-Policy"
         content="default-src 'self';
@@ -16,9 +16,7 @@
                  font-src 'self' https://fonts.gstatic.com;
                  img-src 'self' data:;
                  media-src 'self';
-                 script-src 'self';
-                 form-action https://formspree.io;
-                 connect-src https://formspree.io;" />
+                 script-src 'self';" />
 
   <!-- Google Fonts : Playfair Display (titres) + Nunito (corps) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -29,7 +27,7 @@
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/galerie.css" />
 
-  <title>🔔 La Sonnette — Comité des Fêtes · Pôle Sup de la Salle</title>
+  <title>🔔 Comité des Fêtes</title>
 </head>
 <body>
 
@@ -40,8 +38,8 @@
   ═══════════════════════════════════════════════════════════════ -->
   <header class="entete" role="banner">
     <nav class="navigation" aria-label="Navigation principale">
-      <a href="#accueil" class="navigation__logo" aria-label="La Sonnette - retour en haut">
-        🔔 <span>La Sonnette</span>
+      <a href="#accueil" class="navigation__logo" aria-label="Comité des Fêtes - retour en haut">
+        🔔 <span>Comité des Fêtes</span>
       </a>
       <button class="navigation__burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu-principal">
         <span></span><span></span><span></span>
@@ -139,7 +137,7 @@
                 height="400"
                 loading="lazy"
               />
-              <p class="polaroid__legende">Jean </p>
+              <p class="polaroid__legende">Très rare photo de Jean</p>
             </div>
           </div>
         </div>
@@ -300,6 +298,32 @@
             <p class="polaroid__legende">Jamais une soirée dans une cave n'a été aussi sympa !</p>
           </article>
 
+          <article class="galerie__item polaroid polaroid--incline-droite" data-categorie="afterwork" role="listitem">
+            <button class="polaroid__bouton" aria-label="Agrandir : duo de professeurs à La Librairie">
+              <img
+                src="img/bars/la_librairie.png"
+                alt="Deux collègues souriants dans le bar La Librairie, étagères de livres en arrière-plan"
+                width="400"
+                height="300"
+                loading="lazy"
+              />
+            </button>
+            <p class="polaroid__legende">La Librairie — des livres, des bières, des collègues. Le triangle parfait. 📚</p>
+          </article>
+
+          <article class="galerie__item polaroid polaroid--incline-gauche" data-categorie="afterwork" role="listitem">
+            <button class="polaroid__bouton" aria-label="Agrandir : deuxième photo La Librairie">
+              <img
+                src="img/bars/la_librairie_2.png"
+                alt="Vue intérieure de La Librairie avec des collègues"
+                width="400"
+                height="300"
+                loading="lazy"
+              />
+            </button>
+            <p class="polaroid__legende">3 tournées, 0 regret, quelques idées de cours inexplicablement brillantes. ✨</p>
+          </article>
+
           <!-- === SECRET SANTA === -->
           <article class="galerie__item polaroid" data-categorie="secret-santa" role="listitem">
             <button class="polaroid__bouton" aria-label="Agrandir : Secret Santa, collègue avec pull de Noël">
@@ -352,32 +376,6 @@
               />
             </button>
             <p class="polaroid__legende">« Tu veux ma photo ? » Oui. Absolument oui. 📷</p>
-          </article>
-
-          <article class="galerie__item polaroid polaroid--incline-droite" data-categorie="photobooth" role="listitem">
-            <button class="polaroid__bouton" aria-label="Agrandir : duo de professeurs à La Librairie">
-              <img
-                src="img/bars/la_librairie.png"
-                alt="Deux collègues souriants dans le bar La Librairie, étagères de livres en arrière-plan"
-                width="400"
-                height="300"
-                loading="lazy"
-              />
-            </button>
-            <p class="polaroid__legende">La Librairie — des livres, des bières, des collègues. Le triangle parfait. 📚</p>
-          </article>
-
-          <article class="galerie__item polaroid polaroid--incline-gauche" data-categorie="photobooth" role="listitem">
-            <button class="polaroid__bouton" aria-label="Agrandir : deuxième photo La Librairie">
-              <img
-                src="img/bars/la_librairie_2.png"
-                alt="Vue intérieure de La Librairie avec des collègues"
-                width="400"
-                height="300"
-                loading="lazy"
-              />
-            </button>
-            <p class="polaroid__legende">3 tournées, 0 regret, quelques idées de cours inexplicablement brillantes. ✨</p>
           </article>
 
         </div>
@@ -584,13 +582,12 @@
 
     <!-- ═══════════════════════════════════════════════════════════════
          SECTION 5 — BOÎTE À IDÉES
-         Formulaire unique (MVP) envoyé via Formspree.
+         Les idées sont stockées localement (localStorage) et affichées
+         directement sur la page. Aucun envoi réseau.
          SÉCURITÉ :
          - Validation HTML5 native (required, maxlength, pattern)
-         - Validation JS côté client en complément (jamais suffisante seule)
-         - Pas d'innerHTML avec des données utilisateur
-         - Action vers Formspree (HTTPS uniquement)
-         - Remplacer VOTRE_ID_FORMSPREE par l'ID réel du compte Formspree
+         - Validation JS côté client en complément
+         - Pas d'innerHTML avec des données utilisateur (textContent uniquement)
     ═══════════════════════════════════════════════════════════════ -->
     <section class="idees" id="idees" aria-labelledby="titre-idees">
       <div class="conteneur">
@@ -608,19 +605,10 @@
           <form
             class="formulaire apparition"
             id="formulaire-idees"
-            action="https://formspree.io/f/VOTRE_ID_FORMSPREE"
-            method="POST"
             novalidate
             aria-label="Formulaire boîte à idées"
           >
-            <!-- Champ caché pour identifier la source -->
-            <input type="hidden" name="_subject" value="Nouvelle idée — La Sonnette 🔔" />
-
-            <!-- Anti-spam honeypot : champ invisible, ne doit jamais être rempli par un humain -->
-            <!-- SÉCURITÉ : Ce champ piège les bots de formulaire basiques -->
-            <div class="champ-cache" aria-hidden="true">
-              <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
-            </div>
+            <!-- Pas d'action réseau : soumission gérée entièrement en JS -->
 
             <fieldset class="formulaire__groupe">
               <legend class="formulaire__legende">Quel type d'idée ?</legend>
@@ -694,7 +682,7 @@
               Envoyer l'idée 🚀
             </button>
 
-            <!-- Message de confirmation affiché après envoi réussi -->
+            <!-- Message de confirmation affiché après ajout réussi -->
             <div
               class="formulaire__confirmation"
               id="confirmation-envoi"
@@ -702,18 +690,7 @@
               role="status"
               aria-live="polite"
             >
-              ✅ C'est noté ! Jean et Sandrine liront ça entre deux copies.
-            </div>
-
-            <!-- Message d'erreur réseau -->
-            <div
-              class="formulaire__erreur-globale"
-              id="erreur-envoi"
-              hidden
-              role="alert"
-              aria-live="assertive"
-            >
-              ❌ Oops, quelque chose a planté. Réessaie ou envoie un mail directement.
+              ✅ C'est noté ! Ton idée est ajoutée à la liste.
             </div>
 
           </form>
@@ -730,8 +707,52 @@
           </div>
 
         </div>
+
+        <!-- Liste des idées — affichée sous le formulaire, remplie par formulaire.js -->
+        <div class="idees__liste-wrapper apparition" id="idees-liste-wrapper" hidden>
+          <div class="idees__liste-entete">
+            <h3 class="idees__liste-titre">📋 Les idées du moment</h3>
+            <button class="bouton-admin" id="bouton-admin" type="button" aria-label="Mode administration">🔐 Admin</button>
+          </div>
+          <ul class="idees__liste" id="idees-liste" aria-live="polite" aria-label="Liste des idées proposées"></ul>
+        </div>
+
       </div>
     </section>
+
+    <!-- ── Modal mot de passe admin ── -->
+    <div class="admin-modal" id="admin-modal" hidden role="dialog" aria-modal="true" aria-labelledby="admin-modal-titre">
+      <div class="admin-modal__boite">
+        <h2 class="admin-modal__titre" id="admin-modal-titre">🔐 Mode administration</h2>
+        <p class="admin-modal__texte">Mot de passe requis</p>
+        <input type="password" id="admin-mdp" class="admin-modal__input" placeholder="Mot de passe…" autocomplete="current-password" />
+        <span class="admin-modal__erreur" id="admin-mdp-erreur" hidden>Mot de passe incorrect.</span>
+        <div class="admin-modal__actions">
+          <button class="bouton bouton--primaire" id="admin-valider" type="button">Valider</button>
+          <button class="bouton bouton--secondaire" id="admin-annuler" type="button">Annuler</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Modal modification d'une idée ── -->
+    <div class="admin-modal" id="modif-modal" hidden role="dialog" aria-modal="true" aria-labelledby="modif-modal-titre">
+      <div class="admin-modal__boite">
+        <h2 class="admin-modal__titre" id="modif-modal-titre">✏️ Modifier l'idée</h2>
+        <input type="hidden" id="modif-index" />
+        <div class="formulaire__champ">
+          <label class="formulaire__label" for="modif-nom">Nom</label>
+          <input type="text" id="modif-nom" class="formulaire__input" maxlength="100" />
+        </div>
+        <div class="formulaire__champ">
+          <label class="formulaire__label" for="modif-description">Description</label>
+          <textarea id="modif-description" class="formulaire__textarea" maxlength="500" rows="3"></textarea>
+        </div>
+        <div class="admin-modal__actions">
+          <button class="bouton bouton--primaire" id="modif-valider" type="button">Enregistrer</button>
+          <button class="bouton bouton--secondaire" id="modif-annuler" type="button">Annuler</button>
+        </div>
+      </div>
+    </div>
 
   </main>
 
@@ -742,21 +763,10 @@
   <footer class="pied-de-page" role="contentinfo">
     <div class="conteneur">
       <div class="pied-de-page__contenu">
-        <p class="pied-de-page__logo">🔔 La Sonnette</p>
+        <p class="pied-de-page__logo">🔔 Le Comité des fêtes</p>
         <p class="pied-de-page__copyright">
-          © La Sonnette — Comité des Fêtes du Pôle Sup de la Salle, Rennes
+          Lycée / Pôle Sup / CFA de la Salle.
         </p>
-        <p class="pied-de-page__badges">
-          <span>🎓 fait par des profs</span>
-          <span>❤️ pour des profs</span>
-          <span>☕ avec beaucoup de café</span>
-        </p>
-        <a
-          href="mailto:comite-fetes@polesup-delasalle.fr"
-          class="pied-de-page__contact"
-          aria-label="Envoyer un email au Comité des Fêtes"
-        >
-        </a>
       </div>
     </div>
   </footer>
