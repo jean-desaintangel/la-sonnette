@@ -68,7 +68,7 @@
       <div class="hero__contenu">
         <p class="hero__surtitre">🔔 Comité des Fêtes · de la Salle</p>
         <h1 class="hero__titre">
-          La récré<br />
+          La récrée<br />
           <em>des profs</em>
         </h1>
         <p class="hero__accroche">
@@ -133,7 +133,7 @@
             <div class="polaroid polaroid--incline-droite">
               <img
                 src="img/jean.png"
-                alt="Jean et Sandrine, les organisateurs du Comité des Fêtes, faisant une grimace"
+                alt="Un homme portant une veste gonflable Tsingtao remplie de bière, buvant avec une paille dans une rue animée"
                 width="400"
                 height="400"
                 loading="lazy"
@@ -227,17 +227,57 @@
           <button class="filtre actif" data-filtre="tous" aria-pressed="true">Tous</button>
           <button class="filtre" data-filtre="afterwork" aria-pressed="false">🍺 Afterwork</button>
           <button class="filtre" data-filtre="secret-santa" aria-pressed="false">🎅 Secret Santa</button>
+          <button class="filtre" data-filtre="barbecue" aria-pressed="false">📸 Barbecue</button>
           <button class="filtre" data-filtre="photobooth" aria-pressed="false">📸 Photobooth</button>
         </div>
 
         <!-- Grille photos — chaque item est un polaroïd cliquable -->
         <div class="galerie__grille" id="grille-galerie" role="list" aria-label="Galerie photos des événements">
 
+          <article class="galerie__item polaroid polaroid--incline-droite" data-categorie="secret-santa" role="listitem">
+            <button class="polaroid__bouton" aria-label="Agrandir : vue générale du Secret Santa">
+              <img
+                src="img/events/secret_santa_3.png"
+                alt="Vue générale du Secret Santa dans une salle, nombreux collègues debout, décorations de Noël"
+                width="400"
+                height="300"
+                loading="lazy"
+              />
+            </button>
+            <p class="polaroid__legende">❄️❄️❄️ La reine des neiges.❄️❄️❄️</p>
+          </article>
+
           <article class="galerie__item polaroid polaroid--incline-gauche" data-categorie="afterwork" role="listitem">
-            <button class="polaroid__bouton" aria-label="Agrandir : groupe en train de danser à L'Équinoxe">
+            <button class="polaroid__bouton" aria-label="Agrandir : collègues bras levés dansant à L'Équinoxe">
               <img
                 src="img/events/equinoxe_2.png"
-                alt="Collègues bras levés en train de danser dans une salle aux lumières colorées"
+                alt="Collègues bras levés dansant à L'Équinoxe, lumières vertes, tables garnies et bannière Havana Club"
+                width="400"
+                height="300"
+                loading="lazy"
+              />
+            </button>
+            <p class="polaroid__legende">Quelqu'un avait dit « on rentre tôt ce soir ». C'était il y a quatre heures. 🕺</p>
+          </article>
+
+          <article class="galerie__item polaroid" data-categorie="photobooth" role="listitem">
+            <button class="polaroid__bouton" aria-label="Agrandir : photobooth AVEC, quatre cases de grimaces">
+              <img
+                src="img/events/photobooth_3.png"
+                alt="Planche de photobooth AVEC en 4 cases, collègues grimaçant et riant"
+                width="400"
+                height="300"
+                loading="lazy"
+              />
+            </button>
+            <p class="polaroid__legende">« Tu veux ma photo ? » Oui. Absolument oui. 📷</p>
+          </article>
+
+          <article class="galerie__item polaroid polaroid--incline-gauche" data-categorie="barbecue" role="listitem">
+            <button class="polaroid__bouton" aria-label="Agrandir : collègues en mode barbecue aux Gayeulles">
+              <img
+                src="img/bars/gayeulle.png"
+                alt="Fumée, odeur de saucisses grillées, collègues en mode barbecue au Parc des Gayeulles, tables en bois et arbres verts en fond"
                 width="400"
                 height="300"
                 loading="lazy"
@@ -259,11 +299,24 @@
             <p class="polaroid__legende">Le Grand Huit — une table, vingt légendes, zéro sérieux en vue 🎉</p>
           </article>
 
+          <article class="galerie__item polaroid polaroid--incline-droite" data-categorie="secret-santa" role="listitem">
+            <button class="polaroid__bouton" aria-label="Agrandir : vue générale du Secret Santa">
+              <img
+                src="img/events/secret_santa_1.png"
+                alt="Vue générale du Secret Santa dans une salle, nombreux collègues debout, décorations de Noël"
+                width="400"
+                height="300"
+                loading="lazy"
+              />
+            </button>
+            <p class="polaroid__legende">🎅🎅🎅 Secret Santa 2025. 🎅🎅🎅</p>
+          </article>
+
           <article class="galerie__item polaroid polaroid--incline-gauche" data-categorie="afterwork" role="listitem">
-            <button class="polaroid__bouton" aria-label="Agrandir : groupe en train de danser à L'Équinoxe">
+            <button class="polaroid__bouton" aria-label="Agrandir : selfie de groupe hilare à L'Équinoxe">
               <img
                 src="img/events/equinoxe_4.png"
-                alt="Collègues bras levés en train de danser dans une salle aux lumières colorées"
+                alt="Selfie de groupe de collègues riant à L'Équinoxe, néon Red Bull et affiche Batman en arrière-plan"
                 width="400"
                 height="300"
                 loading="lazy"
@@ -272,11 +325,24 @@
             <p class="polaroid__legende">À ce stade de la soirée, même les plus raisonnables avaient capitulé. 💃</p>
           </article>
 
+          <article class="galerie__item polaroid polaroid--incline-gauche" data-categorie="barbecue" role="listitem">
+            <button class="polaroid__bouton" aria-label="Agrandir : barbeuc ou pique-nique?">
+              <img
+                src="img/events/gayeulle_3.png"
+                alt="barbeuc ou pique-nique?"
+                width="400"
+                height="300"
+                loading="lazy"
+              />
+            </button>
+            <p class="polaroid__legende">Niveau d'engagement : 100%. On ne commente pas. 🍺</p>
+          </article>
+
           <article class="galerie__item polaroid polaroid--incline-gauche" data-categorie="afterwork" role="listitem">
-            <button class="polaroid__bouton" aria-label="Agrandir : groupe en train de danser à L'Équinoxe">
+            <button class="polaroid__bouton" aria-label="Agrandir : foule de collègues bras levés dansant à L'Équinoxe">
               <img
                 src="img/events/equinoxe_7.png"
-                alt="Collègues bras levés en train de danser dans une salle aux lumières colorées"
+                alt="Foule de collègues bras levés dansant à L'Équinoxe, lumières colorées et néon Red Bull"
                 width="400"
                 height="300"
                 loading="lazy"
@@ -285,11 +351,37 @@
             <p class="polaroid__legende">Photo prise juste avant que quelqu'un propose « encore une tournée ». 🍹</p>
           </article>
 
+          <article class="galerie__item polaroid polaroid--incline-droite" data-categorie="secret-santa" role="listitem">
+            <button class="polaroid__bouton" aria-label="Agrandir : vue générale du Secret Santa">
+              <img
+                src="img/events/secret_santa_2.png"
+                alt="Vue générale du Secret Santa dans une salle, nombreux collègues debout, décorations de Noël"
+                width="400"
+                height="300"
+                loading="lazy"
+              />
+            </button>
+            <p class="polaroid__legende">🎅🎅🎅 Secret Santa 2025. 🎅🎅🎅</p>
+          </article>
+
+          <article class="galerie__item polaroid" data-categorie="photobooth" role="listitem">
+            <button class="polaroid__bouton" aria-label="Agrandir : photobooth AVEC, quatre cases de grimaces">
+              <img
+                src="img/events/photobooth_2.png"
+                alt="Planche de photobooth AVEC en 4 cases, collègues grimaçant et riant"
+                width="400"
+                height="300"
+                loading="lazy"
+              />
+            </button>
+            <p class="polaroid__legende">« Tu veux ma photo ? » Oui. Absolument oui. 📷</p>
+          </article>
+
           <article class="galerie__item polaroid" data-categorie="afterwork" role="listitem">
             <button class="polaroid__bouton" aria-label="Agrandir : Jean et Sandrine souriant à l'AVEC">
               <img
                 src="img/bars/avec.png"
-                alt="Jean et Sandrine souriant, assis dans un bar avec néon en forme de cœur en arrière-plan"
+                alt="Jean et Sandrine en selfie à l'AVEC, néon rouge en forme de cœur et lettre A lumineuse en fond"
                 width="400"
                 height="300"
                 loading="lazy"
@@ -299,10 +391,10 @@
           </article>
 
           <article class="galerie__item polaroid polaroid--incline-gauche" data-categorie="afterwork" role="listitem">
-            <button class="polaroid__bouton" aria-label="Agrandir : groupe en train de danser à L'Équinoxe">
+            <button class="polaroid__bouton" aria-label="Agrandir : deux collègues souriantes assises à L'Équinoxe">
               <img
                 src="img/events/equinoxe_6.png"
-                alt="Collègues bras levés en train de danser dans une salle aux lumières colorées"
+                alt="Deux collègues souriantes assises côte à côte dans un coin de L'Équinoxe, murs colorés"
                 width="400"
                 height="300"
                 loading="lazy"
@@ -311,11 +403,11 @@
             <p class="polaroid__legende">Le lendemain, la réunion de 9h avait mystérieusement disparu de l'agenda. 😴</p>
           </article>
 
-          <article class="galerie__item polaroid polaroid--incline-gauche" data-categorie="afterwork" role="listitem">
-            <button class="polaroid__bouton" aria-label="Agrandir : grand afterwork au Grand Huit">
+          <article class="galerie__item polaroid polaroid--incline-gauche" data-categorie="barbecue" role="listitem">
+            <button class="polaroid__bouton" aria-label="Agrandir : selfie de trois collègues aux Gayeulles">
               <img
                 src="img/events/gayeulle_2.png"
-                alt="Les meilleurs."
+                alt="Selfie de trois collègues souriants en extérieur au Parc des Gayeulles, arbres verts en fond"
                 width="400"
                 height="300"
                 loading="lazy"
@@ -325,10 +417,10 @@
           </article>
 
           <article class="galerie__item polaroid polaroid--incline-droite" data-categorie="afterwork" role="listitem">
-            <button class="polaroid__bouton" aria-label="Agrandir : équipe au Grand Huit restaurant">
+            <button class="polaroid__bouton" aria-label="Agrandir : ambiance dansante à L'Équinoxe">
               <img
                 src="img/events/equinoxe_3.png"
-                alt="Grande tablée de collègues qui font signe de la main, plats et verres sur la table"
+                alt="Collègues en pleine soirée à L'Équinoxe, ambiance dansante, néon Red Bull et bannière Havana Club"
                 width="400"
                 height="300"
                 loading="lazy"
@@ -338,10 +430,10 @@
           </article>
 
           <article class="galerie__item polaroid polaroid--incline-droite" data-categorie="afterwork" role="listitem">
-            <button class="polaroid__bouton" aria-label="Agrandir : duo de professeurs à La Librairie">
+            <button class="polaroid__bouton" aria-label="Agrandir : grande tablée de collègues à La Librairie">
               <img
                 src="img/bars/la_librairie.png"
-                alt="Deux collègues souriants dans le bar La Librairie, étagères de livres en arrière-plan"
+                alt="Longue tablée de collègues souriants faisant signe à l'appareil, plafond coloré et verres sur table"
                 width="400"
                 height="300"
                 loading="lazy"
@@ -354,33 +446,33 @@
             <button class="polaroid__bouton" aria-label="Agrandir : deuxième photo La Librairie">
               <img
                 src="img/events/la_librairie_2.png"
-                alt="Vue intérieure de La Librairie avec des collègues"
+                alt="Selfie de deux collègues devant les rayonnages de La Librairie, un collègue tire la langue"
                 width="400"
                 height="300"
                 loading="lazy"
               />
             </button>
-            <p class="polaroid__legende">3 tournées, 0 regret, quelques idées de cours inexplicablement brillantes. ✨</p>
+            <p class="polaroid__legende">La légende dit qu'à La Librairie, nul n'a lit autant de livres qu'eux... ✨</p>
           </article>
 
           <article class="galerie__item polaroid" data-categorie="secret-santa" role="listitem">
-            <button class="polaroid__bouton" aria-label="Agrandir : Secret Santa, collègue avec pull de Noël">
+            <button class="polaroid__bouton" aria-label="Agrandir : trois collègues avec leurs cadeaux Secret Santa">
               <img
-                src="img/events/secret_santa_2.png"
-                alt="Une collègue portant un pull de Noël rouge Ho-Ho-Ho lors du Secret Santa"
+                src="img/events/secret_santa_4.png"
+                alt="Trois collègues souriant en tenant leurs cadeaux du Secret Santa — boules à neige et figurines festives"
                 width="400"
                 height="300"
                 loading="lazy"
               />
             </button>
-            <p class="polaroid__legende">🎅🎅🎅 Secret Santa 2025. 🎅🎅🎅</p>
+            <p class="polaroid__legende">Il paraît que le pull Ho-Ho-Ho était « un défi ». Elle l'a relevé. Respect absolu. 🎅</p>
           </article>
 
           <article class="galerie__item polaroid polaroid--incline-gauche" data-categorie="afterwork" role="listitem">
-            <button class="polaroid__bouton" aria-label="Agrandir : groupe en train de danser à L'Équinoxe">
+            <button class="polaroid__bouton" aria-label="Agrandir : collègue pouce levé avec un gâteau à L'Équinoxe">
               <img
                 src="img/events/equinoxe_9.png"
-                alt="Collègues bras levés en train de danser dans une salle aux lumières colorées"
+                alt="Collègue souriant pouce levé, tenant un petit gâteau à L'Équinoxe, néon Red Bull en arrière-plan"
                 width="400"
                 height="300"
                 loading="lazy"
@@ -390,36 +482,23 @@
           </article>
 
           <article class="galerie__item polaroid polaroid--incline-droite" data-categorie="secret-santa" role="listitem">
-            <button class="polaroid__bouton" aria-label="Agrandir : trois collègues fières avec leurs cadeaux Secret Santa">
+            <button class="polaroid__bouton" aria-label="Agrandir : vue générale du Secret Santa">
               <img
-                src="img/events/secret_santa_3.png"
-                alt="Trois collègues souriantes tenant leurs cadeaux du Secret Santa — boule à neige, bougies"
+                src="img/events/secret_santa_6.png"
+                alt="Vue générale du Secret Santa dans une salle, nombreux collègues debout, décorations de Noël"
                 width="400"
                 height="300"
                 loading="lazy"
               />
             </button>
-            <p class="polaroid__legende">L'année où quelqu'un a reçu une boule à neige. On s'en souvient encore. ❄️</p>
-          </article>
-
-          <article class="galerie__item polaroid polaroid--incline-gauche" data-categorie="secret-santa" role="listitem">
-            <button class="polaroid__bouton" aria-label="Agrandir : ambiance générale Secret Santa">
-              <img
-                src="img/events/secret_santa_1.png"
-                alt="Vue générale du Secret Santa, collègues échangeant des cadeaux dans une salle"
-                width="400"
-                height="300"
-                loading="lazy"
-              />
-            </button>
-            <p class="polaroid__legende">Il paraît que le pull Ho-Ho-Ho était « un défi ». Elle l'a relevé. Respect absolu. 🎅</p>
+            <p class="polaroid__legende">🎅🎅🎅 Secret Santa 2025. 🎅🎅🎅</p>
           </article>
 
           <article class="galerie__item polaroid" data-categorie="photobooth" role="listitem">
             <button class="polaroid__bouton" aria-label="Agrandir : photobooth La Librairie, quatre cases de grimaces">
               <img
                 src="img/events/photobooth.png"
-                alt="Quatre collègues dans un photobooth, grimaces et fou-rires — La Librairie"
+                alt="Planche de photobooth de La Librairie en 4 cases, collègues grimaçant et riant"
                 width="400"
                 height="300"
                 loading="lazy"
@@ -475,7 +554,7 @@
             <div class="carte-bar__image">
               <img
                 src="img/bars/avec.png"
-                alt="Intérieur de l'AVEC, bar spacieux avec déco lumineuse"
+                alt="Jean et Sandrine en selfie à l'AVEC, néon rouge en forme de cœur et lettre A lumineuse en fond"
                 width="400"
                 height="250"
                 loading="lazy"
@@ -507,7 +586,7 @@
             <div class="carte-bar__image">
               <img
                 src="img/bars/la_librairie.png"
-                alt="Ambiance chaleureuse au Café La Librairie, livres en décor"
+                alt="Longue tablée de collègues à La Librairie, plafond coloré et verres sur la table"
                 width="400"
                 height="250"
                 loading="lazy"
@@ -539,7 +618,7 @@
             <div class="carte-bar__image">
               <img
                 src="img/bars/equinoxe.png"
-                alt="Ambiance festive à L'Équinoxe, lumières néon colorées et dancefloor"
+                alt="Collègues bras levés dansant à L'Équinoxe, lumières vertes et rouges, bannière Havana Club"
                 width="400"
                 height="250"
                 loading="lazy"
@@ -603,7 +682,7 @@
             <div class="carte-bar__image carte-bar__image--placeholder">
               <img
                 src="img/bars/saint-jacques.png"
-                alt="Café Saint-Jacques, ambiance chaleureuse et conviviale"
+                alt="Intérieur moderne du Café Saint-Jacques, sol rose, canapés gris et ampoules suspendues"
                 width="400"
                 height="250"
                 loading="lazy"
@@ -635,7 +714,7 @@
             <div class="carte-bar__image carte-bar__image--placeholder">
               <img
                 src="img/bars/gayeulle.png"
-                alt="Parc des Gayeulles, espace vert et convivial"
+                alt="Groupe de collègues réunis autour d'une table en plein air au Parc des Gayeulles, par beau temps"
                 width="400"
                 height="250"
                 loading="lazy"
