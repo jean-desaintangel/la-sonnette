@@ -1360,3 +1360,106 @@ details[open] .idees__item-summary::before { content: '▾ '; }
     gap: var(--espace-sm);
   }
 }
+
+
+/* ─────────────────────────────────────────────────────────────────
+   VERROU — Écran de connexion
+   Positionné en fixe au-dessus de tout le contenu.
+   Retiré par auth.js après authentification réussie.
+   ───────────────────────────────────────────────────────────────── */
+#verrou {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--couleur-fond-sombre);
+  padding: var(--espace-md);
+}
+
+.verrou__carte {
+  background: var(--couleur-fond-carte);
+  border-radius: var(--arrondi-lg);
+  padding: var(--espace-lg) var(--espace-md);
+  box-shadow: var(--ombre-forte);
+  text-align: center;
+  width: 100%;
+  max-width: 380px;
+}
+
+.verrou__logo {
+  font-size: 3rem;
+  margin-bottom: var(--espace-xs);
+}
+
+.verrou__titre {
+  font-family: var(--police-titre);
+  font-size: 1.8rem;
+  color: var(--couleur-texte);
+  margin-bottom: 0.25rem;
+}
+
+.verrou__sous-titre {
+  color: var(--couleur-texte-clair);
+  font-size: 0.95rem;
+  margin-bottom: var(--espace-md);
+}
+
+.verrou__label {
+  display: block;
+  text-align: left;
+  font-weight: 700;
+  color: var(--couleur-texte);
+  margin-bottom: 0.4rem;
+  font-size: 0.9rem;
+}
+
+.verrou__input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid #d6c9b8;
+  border-radius: var(--arrondi-md);
+  font-family: var(--police-corps);
+  font-size: 1rem;
+  color: var(--couleur-texte);
+  background: #fff;
+  transition: border-color var(--transition-rapide);
+  margin-bottom: 0.5rem;
+}
+
+.verrou__input:focus {
+  outline: none;
+  border-color: var(--couleur-accent-brique);
+}
+
+.verrou__erreur {
+  color: var(--couleur-accent-brique);
+  font-size: 0.85rem;
+  min-height: 1.2em;
+  margin-bottom: 0.5rem;
+}
+
+.verrou__bouton {
+  width: 100%;
+  padding: 0.85rem;
+  background: var(--couleur-accent-brique);
+  color: #fff;
+  border: none;
+  border-radius: var(--arrondi-md);
+  font-family: var(--police-corps);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background var(--transition-rapide), transform var(--transition-rapide);
+  margin-top: 0.25rem;
+}
+
+.verrou__bouton:hover {
+  background: #bf4e2b;
+  transform: translateY(-1px);
+}
+
+.verrou__bouton:active {
+  transform: translateY(0);
+}

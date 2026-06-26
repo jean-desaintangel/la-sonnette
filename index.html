@@ -33,6 +33,33 @@
 <body>
 
   <!-- ═══════════════════════════════════════════════════════════════
+       VERROU — Écran de connexion
+       Affiché par défaut. Retiré par auth.js une fois le mot de passe
+       correct saisi (ou si la session est déjà authentifiée).
+  ═══════════════════════════════════════════════════════════════ -->
+  <div id="verrou" role="dialog" aria-modal="true" aria-labelledby="verrou-titre">
+    <div class="verrou__carte">
+      <p class="verrou__logo" aria-hidden="true">🔔</p>
+      <h1 class="verrou__titre" id="verrou-titre">Comité des Fêtes</h1>
+      <p class="verrou__sous-titre">Espace réservé aux membres.</p>
+      <form id="formulaire-verrou" novalidate>
+        <label class="verrou__label" for="champ-mdp">Mot de passe</label>
+        <input
+          type="password"
+          id="champ-mdp"
+          class="verrou__input"
+          placeholder="••••••••••"
+          required
+          autocomplete="current-password"
+          aria-describedby="erreur-verrou"
+        />
+        <p class="verrou__erreur" id="erreur-verrou" role="alert" aria-live="polite"></p>
+        <button type="submit" class="verrou__bouton">Entrer</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════
        NAVIGATION PRINCIPALE
        Barre fixe avec ancres vers chaque section.
        L'attribut aria-label identifie la nav pour les lecteurs d'écran.
@@ -972,6 +999,7 @@
   </footer>
 
   <!-- Scripts JS séparés par responsabilité, chargés en fin de body -->
+  <script src="js/auth.js"></script>
   <script src="js/main.js"></script>
   <script src="js/galerie.js"></script>
   <script src="js/formulaire.js"></script>
