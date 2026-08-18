@@ -89,10 +89,20 @@
   // Mettre à jour l'affichage des votes
   async function updateVoteCounts() {
     const counts = await getVoteCounts();
+    let total = 0;
+
     document.querySelectorAll('.vote-count').forEach(el => {
       const idee = el.getAttribute('data-idee');
-      el.textContent = counts[idee] || 0;
+      const count = counts[idee] || 0;
+      el.textContent = count;
+      total += count;
     });
+
+    // Mettre à jour le total
+    const totalElement = document.getElementById('total-votes');
+    if (totalElement) {
+      totalElement.textContent = total;
+    }
   }
 
   // Mettre à jour l'état des boutons

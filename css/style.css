@@ -1319,6 +1319,22 @@ details[open] .idees__item-summary::before { content: '▾ '; }
   text-align: center;
 }
 
+.contact-direct__total {
+  margin-top: var(--espace-md);
+  padding-top: var(--espace-md);
+  border-top: 1px solid rgba(245, 200, 66, 0.3);
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--couleur-fond);
+  font-weight: 600;
+}
+
+.contact-direct__total span {
+  color: var(--couleur-accent-jaune);
+  font-weight: 900;
+  font-size: 1.3rem;
+}
+
 .contact-direct__decoration {
   display: flex;
   gap: 1rem;
