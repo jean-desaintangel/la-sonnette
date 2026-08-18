@@ -1213,6 +1213,112 @@ details[open] .idees__item-summary::before { content: '▾ '; }
   color: var(--couleur-texte);
 }
 
+.contact-direct__liste {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espace-sm);
+}
+
+.contact-direct__liste li {
+  margin: 0;
+}
+
+.contact-direct__liste a {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: rgba(245, 200, 66, 0.15);
+  border: 1px solid var(--couleur-accent-jaune);
+  border-radius: var(--arrondi-md);
+  color: var(--couleur-fond);
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color var(--transition-rapide), transform var(--transition-rapide);
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.contact-direct__liste a:hover,
+.contact-direct__liste a:focus-visible {
+  background-color: var(--couleur-accent-jaune);
+  color: var(--couleur-texte);
+  transform: translateY(-3px);
+}
+
+.contact-direct__idee {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: rgba(245, 200, 66, 0.15);
+  border: 1px solid var(--couleur-accent-jaune);
+  border-radius: var(--arrondi-md);
+  color: var(--couleur-fond);
+  font-weight: 600;
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* Système de vote */
+.contact-direct__item {
+  display: flex;
+  gap: var(--espace-sm);
+  align-items: center;
+  justify-content: space-between;
+}
+
+.contact-direct__contenu {
+  flex: 1;
+}
+
+.contact-direct__contenu a,
+.contact-direct__contenu .contact-direct__idee {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.contact-direct__votes {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.vote-btn {
+  background-color: rgba(245, 200, 66, 0.2);
+  border: 1px solid var(--couleur-accent-jaune);
+  color: var(--couleur-fond);
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--arrondi-sm);
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color var(--transition-rapide), transform var(--transition-rapide);
+  flex-shrink: 0;
+}
+
+.vote-btn:hover {
+  background-color: var(--couleur-accent-jaune);
+  color: var(--couleur-texte);
+  transform: scale(1.1);
+}
+
+.vote-btn:active {
+  transform: scale(0.95);
+}
+
+.vote-count {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--couleur-accent-jaune);
+  min-width: 2.5rem;
+  text-align: center;
+}
+
 .contact-direct__decoration {
   display: flex;
   gap: 1rem;

@@ -965,14 +965,80 @@
 
           </form>
 
-          <!-- Bloc contact direct -->
+          <!-- Bloc idées à réaliser -->
           <div class="idees__contact apparition" style="animation-delay: 0.2s">
             <div class="contact-direct">
-              <p class="contact-direct__titre">Ou alors… en vrai 💬</p>
-              <p>Sandrine et Jean sont dans les couloirs tous les jours.</p>
-              <div class="contact-direct__decoration" aria-hidden="true">
-                <span>🎉</span><span>🍺</span><span>🔔</span><span>❤️</span>
-              </div>
+              <p class="contact-direct__titre">Idées à réaliser 🚀</p>
+              <ul class="contact-direct__liste" role="list">
+                <li class="contact-direct__item" data-idee="Bloom Pop">
+                  <div class="contact-direct__contenu">
+                    <a href="https://bloompop.fr/" target="_blank" rel="noopener noreferrer">
+                      🌸 Bloom Pop
+                    </a>
+                  </div>
+                  <div class="contact-direct__votes">
+                    <button class="vote-btn vote-btn--moins" aria-label="Retirer un vote pour Bloom Pop">−</button>
+                    <span class="vote-count" data-idee="Bloom Pop">0</span>
+                    <button class="vote-btn vote-btn--plus" aria-label="Ajouter un vote pour Bloom Pop">+</button>
+                  </div>
+                </li>
+                <li class="contact-direct__item" data-idee="La Basse Cour">
+                  <div class="contact-direct__contenu">
+                    <a href="https://labassecour.org/" target="_blank" rel="noopener noreferrer">
+                      🏠 La Basse Cour
+                    </a>
+                  </div>
+                  <div class="contact-direct__votes">
+                    <button class="vote-btn vote-btn--moins" aria-label="Retirer un vote pour La Basse Cour">−</button>
+                    <span class="vote-count" data-idee="La Basse Cour">0</span>
+                    <button class="vote-btn vote-btn--plus" aria-label="Ajouter un vote pour La Basse Cour">+</button>
+                  </div>
+                </li>
+                <li class="contact-direct__item" data-idee="La Guinguette">
+                  <div class="contact-direct__contenu">
+                    <a href="https://www.lemem.fr/programmation/la-guinguette-2026/" target="_blank" rel="noopener noreferrer">
+                      🎭 La Guinguette
+                    </a>
+                  </div>
+                  <div class="contact-direct__votes">
+                    <button class="vote-btn vote-btn--moins" aria-label="Retirer un vote pour La Guinguette">−</button>
+                    <span class="vote-count" data-idee="La Guinguette">0</span>
+                    <button class="vote-btn vote-btn--plus" aria-label="Ajouter un vote pour La Guinguette">+</button>
+                  </div>
+                </li>
+                <li class="contact-direct__item" data-idee="Grabuge Cantine">
+                  <div class="contact-direct__contenu">
+                    <a href="https://leshallesencommun.fr/sur-place/grabuge-cantine" target="_blank" rel="noopener noreferrer">
+                      🍽️ Grabuge Cantine
+                    </a>
+                  </div>
+                  <div class="contact-direct__votes">
+                    <button class="vote-btn vote-btn--moins" aria-label="Retirer un vote pour Grabuge Cantine">−</button>
+                    <span class="vote-count" data-idee="Grabuge Cantine">0</span>
+                    <button class="vote-btn vote-btn--plus" aria-label="Ajouter un vote pour Grabuge Cantine">+</button>
+                  </div>
+                </li>
+                <li class="contact-direct__item" data-idee="Tournoi de pétanque">
+                  <div class="contact-direct__contenu">
+                    <span class="contact-direct__idee">🎯 Tournoi de pétanque</span>
+                  </div>
+                  <div class="contact-direct__votes">
+                    <button class="vote-btn vote-btn--moins" aria-label="Retirer un vote pour Tournoi de pétanque">−</button>
+                    <span class="vote-count" data-idee="Tournoi de pétanque">0</span>
+                    <button class="vote-btn vote-btn--plus" aria-label="Ajouter un vote pour Tournoi de pétanque">+</button>
+                  </div>
+                </li>
+                <li class="contact-direct__item" data-idee="Karaoké">
+                  <div class="contact-direct__contenu">
+                    <span class="contact-direct__idee">🎤 Karaoké</span>
+                  </div>
+                  <div class="contact-direct__votes">
+                    <button class="vote-btn vote-btn--moins" aria-label="Retirer un vote pour Karaoké">−</button>
+                    <span class="vote-count" data-idee="Karaoké">0</span>
+                    <button class="vote-btn vote-btn--plus" aria-label="Ajouter un vote pour Karaoké">+</button>
+                  </div>
+                </li>
+              </ul>
             </div>
           </div>
 
@@ -1003,6 +1069,11 @@
   <script src="js/main.js"></script>
   <script src="js/galerie.js"></script>
   <script src="js/formulaire.js"></script>
+
+  <!-- Supabase SDK pour le système de votes -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.38.4"></script>
+  <!-- Système de votes -->
+  <script src="js/votes.js"></script>
 
 </body>
 </html>
