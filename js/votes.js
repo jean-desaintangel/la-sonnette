@@ -103,6 +103,30 @@
     if (totalElement) {
       totalElement.textContent = total;
     }
+
+    // Trier les idées par nombre de votes
+    sortIdeasByVotes(counts);
+  }
+
+  // Trier les idées par popularité (votes décroissants)
+  function sortIdeasByVotes(counts) {
+    const liste = document.querySelector('.contact-direct__liste');
+    if (!liste) return;
+
+    const items = Array.from(liste.querySelectorAll('.contact-direct__item'));
+
+    items.sort((a, b) => {
+      const ideeA = a.getAttribute('data-idee');
+      const ideeB = b.getAttribute('data-idee');
+      const countA = counts[ideeA] || 0;
+      const countB = counts[ideeB] || 0;
+      return countB - countA; // Ordre décroissant
+    });
+
+    // Réorganiser les éléments
+    items.forEach(item => {
+      liste.appendChild(item);
+    });
   }
 
   // Mettre à jour l'état des boutons
