@@ -89,20 +89,12 @@
   // Mettre à jour l'affichage des votes
   async function updateVoteCounts() {
     const counts = await getVoteCounts();
-    let total = 0;
 
     document.querySelectorAll('.vote-count').forEach(el => {
       const idee = el.getAttribute('data-idee');
       const count = counts[idee] || 0;
       el.textContent = count;
-      total += count;
     });
-
-    // Mettre à jour le total
-    const totalElement = document.getElementById('total-votes');
-    if (totalElement) {
-      totalElement.textContent = total;
-    }
 
     // Trier les idées par nombre de votes
     sortIdeasByVotes(counts);
