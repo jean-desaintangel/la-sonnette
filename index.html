@@ -256,6 +256,7 @@
           <button class="filtre" data-filtre="secret-santa" aria-pressed="false">🎅 Secret Santa</button>
           <button class="filtre" data-filtre="barbecue" aria-pressed="false">📸 Barbecue</button>
           <button class="filtre" data-filtre="photobooth" aria-pressed="false">📸 Photobooth</button>
+          <button class="filtre" data-filtre="karaoke" aria-pressed="false">🎤 Karaoké</button>
         </div>
 
         <!-- Grille photos — chaque item est un polaroïd cliquable -->
@@ -612,6 +613,58 @@
             <p class="polaroid__legende">Les rayonnages comme décor, la grimace comme art de vivre. 📚</p>
           </article>
 
+          <article class="galerie__item polaroid polaroid--incline-droite" data-categorie="karaoke" role="listitem">
+            <button class="polaroid__bouton" aria-label="Agrandir : deux collègues attendant leur tour au karaoké de l'Overlook">
+              <img
+                src="img/events/overlook_2.jpeg"
+                alt="Deux collègues souriantes debout devant le bar de l'Overlook, lumière orangée et bouteilles en fond"
+                width="400"
+                height="300"
+                loading="lazy"
+              />
+            </button>
+            <p class="polaroid__legende">Le regard de celles qui savent que leur chanson arrive. 🎶</p>
+          </article>
+
+          <article class="galerie__item polaroid polaroid--incline-gauche" data-categorie="karaoke" role="listitem">
+            <button class="polaroid__bouton" aria-label="Agrandir : duo au micro à l'Overlook">
+              <img
+                src="img/events/overlook_3.jpeg"
+                alt="Deux collègues chantant chacun au micro à l'Overlook, cible de fléchettes et ardoise de cocktails en fond"
+                width="300"
+                height="400"
+                loading="lazy"
+              />
+            </button>
+            <p class="polaroid__legende">Duo au micro : l'un vit la chanson, l'autre la négocie. 🎤</p>
+          </article>
+
+          <article class="galerie__item polaroid polaroid--incline-droite" data-categorie="karaoke" role="listitem">
+            <button class="polaroid__bouton" aria-label="Agrandir : chorale improvisée à l'Overlook">
+              <img
+                src="img/events/overlook_4.jpeg"
+                alt="Groupe de collègues chantant à tue-tête et dansant sur la moquette hexagonale de l'Overlook"
+                width="400"
+                height="300"
+                loading="lazy"
+              />
+            </button>
+            <p class="polaroid__legende">Chorale improvisée, justesse facultative, bonne humeur obligatoire. 🎶</p>
+          </article>
+
+          <article class="galerie__item polaroid" data-categorie="karaoke" role="listitem">
+            <button class="polaroid__bouton" aria-label="Agrandir : selfie de groupe au karaoké de l'Overlook">
+              <img
+                src="img/events/overlook_5.jpeg"
+                alt="Selfie de groupe au karaoké de l'Overlook, grimaces, micros en main et signes de victoire"
+                width="400"
+                height="300"
+                loading="lazy"
+              />
+            </button>
+            <p class="polaroid__legende">Here's Johnny ! Personne n'est ressorti de l'Overlook avec sa voix. 🪓</p>
+          </article>
+
         </div>
 
         <!-- Lightbox modale pour agrandir les photos -->
@@ -648,7 +701,7 @@
             🍺 Notre labo
           </h2>
           <p class="bars__sous-titre">
-            Six adresses testées, approuvées, et retestées par sécurité.
+            Sept adresses testées, approuvées, et retestées par sécurité.
           </p>
         </div>
 
@@ -846,6 +899,38 @@
             </div>
           </article>
 
+          <!-- Carte bar : Overlook -->
+          <article class="carte-bar apparition" style="animation-delay: 0.5s" aria-label="Bar Overlook">
+            <div class="carte-bar__image">
+              <img
+                src="img/bars/overlook.jpeg"
+                alt="Collègues chantant et dansant au karaoké de l'Overlook, moquette hexagonale et cible de fléchettes en fond"
+                width="400"
+                height="250"
+                loading="lazy"
+              />
+            </div>
+            <div class="carte-bar__contenu">
+              <div class="carte-bar__entete">
+                <h3 class="carte-bar__nom">Overlook</h3>
+                <span class="carte-bar__emoji" aria-label="Ambiance : karaoké">🎤</span>
+              </div>
+              <p class="carte-bar__description">
+                Un bar façon Shining avec karaoké. On est venus pour une soirée, on y serait bien restés pour toujours.
+              </p>
+              <p class="carte-bar__adresse">📍 Rennes, tour les Horizons</p>
+              <a
+                href="https://www.google.com/maps/place/Overlook/@48.1127446,-1.6912702,718m/data=!3m3!1e3!4b1!5s0x480ede2c28dcd377:0x15b1334c613247b9!4m6!3m5!1s0x480edf47647c13c3:0x56894b66d858c9a6!8m2!3d48.112741!4d-1.6886953!16s%2Fg%2F11qmbkdnv3"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="bouton bouton--carte"
+                aria-label="Voir Overlook sur Google Maps (ouvre un nouvel onglet)"
+              >
+                📍 Voir sur Google Maps
+              </a>
+            </div>
+          </article>
+
         </div>
       </div>
     </section>
@@ -997,7 +1082,7 @@
                 <li class="contact-direct__item" data-idee="La Guinguette">
                   <div class="contact-direct__contenu">
                     <a href="https://www.lemem.fr/programmation/la-guinguette-2026/" target="_blank" rel="noopener noreferrer">
-                      🎭 La Guinguette (ferme en octobre)
+                      🎭 La Guinguette (ouvre qu'en avril)
                     </a>
                   </div>
                   <div class="contact-direct__votes">
@@ -1030,7 +1115,7 @@
                 </li>
                 <li class="contact-direct__item" data-idee="Karaoké">
                   <div class="contact-direct__contenu">
-                    <span class="contact-direct__idee">🎤 Karaoké <a href="https://fr.mamashelter.com/rennes/" target="_blank" rel="noopener noreferrer">mama Shelter</a> ou <a href="https://ankoraventure.fr/#/catalog/242723d6-af63-4b97-b1d5-315778674011" target="_blank" rel="noopener noreferrer">Ankor</a></span>
+                    <span class="contact-direct__idee">🎤 Karaoké <a href="https://www.google.com/maps/place/Overlook/@48.1127446,-1.6912702,718m/data=!3m3!1e3!4b1!5s0x480ede2c28dcd377:0x15b1334c613247b9!4m6!3m5!1s0x480edf47647c13c3:0x56894b66d858c9a6!8m2!3d48.112741!4d-1.6886953!16s%2Fg%2F11qmbkdnv3" target="_blank" rel="noopener noreferrer">Overlook</a></span>
                   </div>
                   <div class="contact-direct__votes">
                     <button class="vote-btn vote-btn--moins" aria-label="Retirer un vote pour Karaoké">−</button>
